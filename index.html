@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trivia Game!!</title>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Russo+One|Righteous" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="title"> Justice League Member Application </h1>
+    </header>
+		<div id="directions">
+            <h1>Directions</h1>
+            <p>Answer the 10 questions before the timer's up or face your demise. JLA doesn't mess around.</p>
+            <button type="button" id="start_button">START</button>
+        </div>
+            
+    	<div id="main-container">
+            <h1 id = "timer_line">Time Remaining: <span id = "timer_number">60 Seconds</span></h1>
+
+                <h3>1. Superman's real name is...</h3>
+                    <input type="radio" name="q1" value="Stan Lee">Stan Lee
+                    <input type="radio" name="q1" value="Clark Kent">Clark Kent
+                  	<input type="radio" name="q1" value="Richard Simmons">Richard Simmons
+                    <input type="radio" name="q1" value="Jimmy Olson">Jimmy Olson
+
+
+                <h3>2. Wonder Woman leaves Paradise Island with which man hunk?</h3>
+
+                    <input type="radio" name="q2" value="Ares">Ares
+                    <input type="radio" name="q2" value="John Snow">John Snow
+                    <input type="radio" name="q2" value="Steve Trevor">Steve Trevor
+                    <input type="radio" name="q2" value="Morpheus">Morpheus
+
+                <h3>3. Barry Allen is the second person to wear the costume of...</h3>
+
+                    <input type="radio" name="q3" value="The Flash">The Flash
+                    <input type="radio" name="q3" value="Red Hood">Red Hood
+                    <input type="radio" name="q3" value="Hawkman">Hawkman
+                    <input type="radio" name="q3" value="Plastic Man">Plastic Man
+
+                <h3>4. Who was the original Green Lantern?</h3>
+
+                    <input type="radio" name="q4" value="Anthony Kiedis">Anthony Kiedis
+                    <input type="radio" name="q4" value="John Stewart">John Stewart
+                    <input type="radio" name="q4" value="Kal Raynor">Kal Raynor
+                    <input type="radio" name="q4" value="Hal Jordan">Hal Jordan
+
+                <h3>5. Aquaman is the king of...</h3>
+
+                    <input type="radio" name="q5" value="Atlantis">Atlantis
+                    <input type="radio" name="q5" value="Sandals">Sandals
+                    <input type="radio" name="q5" value="Oceanus">Oceanus
+                    <input type="radio" name="q5" value="Neptune">Neptune
+
+                <h3>6. Who is Oliver Queen?</h3>
+
+                    <input type="radio" name="q6" value="Green Lantern">Green Lanter
+                    <input type="radio" name="q6" value="Green Hornet">Green Hornet
+                    <input type="radio" name="q6" value="Green Goblin">Green Goblin
+                    <input type="radio" name="q6" value="Green Arrow">Green Arrow
+
+                <h3>7. Which bad man killed Bruce Wayne's parents?</h3>
+
+                    <input type="radio" name="q7" value="The Joker">The Joker
+                    <input type="radio" name="q7" value="Joe Chill">Joe Chill
+                    <input type="radio" name="q7" value="Harvey Dent">Harvey Dent
+                    <input type="radio" name="q7" value="Robert E. Lee">Robert E. Lee
+
+                <h3>8. The Legion of Doom has been led by which meanie?</h3>
+
+                    <input type="radio" name="q8" value="Vandal Savage">Vandal Savage
+                    <input type="radio" name="q8" value="Gorilla Grodd">Gorilla Grodd
+                    <input type="radio" name="q8" value="Lex Luthor">Lex Luthor
+                    <input type="radio" name="q8" value="All of the Above">All of the Above
+
+                <h3>9. Which heroine is not in the Justice League?</h3>
+
+                    <input type="radio" name="q9" value="Supergirl">Supergirl
+                    <input type="radio" name="q9" value="Zatanna">Zatanna
+                    <input type="radio" name="q9" value="Black Canary">Black Canary
+                    <input type="radio" name="q9" value="Black Widow">Black Widow
+
+                <h3>10. Cyborg was also a part of which super team?</h3>
+
+                    <input type="radio" name="q10" value="The Commadores">The Commadores
+                    <input type="radio" name="q10" value="Teen Titans">Teen Titans
+                    <input type="radio" name="q10" value="Legends of the Hidden Temple">Legends of the Hidden Temple
+                    <input type="radio" name="q10" value="Ultimate Strength Squad">Ultimate Strength Squad
+
+                    <br>
+                    <button id = done_button>Done!</button>
+           
+
+            <div id = "end-container">
+			<h1>Mission Accomplished!</h1>
+		<h1>Correct Answers: <span id = "correct-answers">0</span></h1>
+			<h1>Incorrect Answers: <span id = wrong-answers>0</span></h1>
+			<h1>Unanswered: <span id = "unanswered">0</span></h1>
+		</div>
+            
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+
+</html>
