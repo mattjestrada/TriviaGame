@@ -1,76 +1,42 @@
 // My Global variables
 var count = 60;
-var correctCount = 0;
-var wrongCount = 0;
-var unansweredCount = 0;
+var correct = 0;
+var wrong = 0;
+var unanswered = 0;
+var panel = $("#main-container");
 
-
+$("#main-container").hide();
+$("#end-container").hide();
 
 //Game Functions
-$(document).ready(function(){
-
-	// Intialize the game with hidden Divs
-	$("#main-container").hide();
-	$("#end-container").hide();
-
-	$("#start_button").on("click", function(){
-
-		// Hide the start Div from the user
-		$("#directions").hide();
-
-
-		// Show the Game Div
-		$("#main-container").show();
-
-		startCountdown();
-		return;
-
-	});
-
-
+var game = {
 
 	// Counts down and displays the time to the user
-	function countdown(){
+	countdown: function(){
 		count--;
-    	$('#timer_number').html(count + " Seconds");
-
-    	
-			// User finishes before time is up and clicks done
-			$("#done_button").on("click", function(){
-
-			// Stop the countdown and run the timeUp function
-			//clearInterval(startCountdown);
-			count = 0; 
-			return;
-
-			});
-
-
+    	$('#timer_number').html(count + " seconds");
 			// Finish the game after the timer reaches 0
-			if(count == -1){
-
-				// Collect the radio inputs
-				timeUp();
-
+			if(count === 0){
+				game.timeUp();
 				// Hide the game Div from the user
-				$("#main-container").hide();
-
+				 $("#main-container").hide();
 			}
-
-
-	}
-
+	},
 
 	// Show the countdown
-	function startCountdown(){
+	startCountdown: function() {
+		$("#main-container").show();
 
-		setInterval(countdown, 1000);
+		timer = setInterval(game.countdown, 1000);
 
-	}
+		$('#directions').remove();
+
+		panel.append("<br><button type='submit' id='done_button'>Done</button>");
+	},
 
 
 	// Function to be run after the timer is up
-	function timeUp(){
+	timeUp: function() {
 
 
 		// Checked values of Radio Buttons
@@ -87,129 +53,130 @@ $(document).ready(function(){
 
 
 
-		// Determine the right/wrong/unanswered counts ( This count be a lot more DRY :/ )
+		// Determine the right/wrong/unanswered counts
 		if(Q1 == undefined){
-			unansweredCount++;
+			unanswered++;
 		}
 		else if(Q1 == "Clark Kent"){
-			correctCount++;
+			correct++;
 		}
 		else{
-			wrongCount++;
+			wrong++;
 		}
-
 
 		if(Q2 == undefined){
-			unansweredCount++;
+			unanswered++;
 		}
 		else if(Q2 == "Steve Trevor"){
-			correctCount++;
+			correct++;
 		}
 		else{
-			wrongCount++;
+			wrong++;
 		}
-
 
 		if(Q3 == undefined){
-			unansweredCount++;
+			unanswered++;
 		}
 		else if(Q3 == "The Flash"){
-			correctCount++;
+			correct++;
 		}
 		else{
-			wrongCount++;
+			wrong++;
 		}
-
 
 		if(Q4 == undefined){
-			unansweredCount++;
+			unanswered++;
 		}
 		else if(Q4 == "Hal Jordan"){
-			correctCount++;
+			correct++;
 		}
 		else{
-			wrongCount++;
+			wrong++;
 		}
-
 
 		if(Q5 == undefined){
-			unansweredCount++;
+			unanswered++;
 		}
 		else if(Q5 == "Atlantis"){
-			correctCount++;
+			correct++;
 		}
 		else{
-			wrongCount++;
+			wrong++;
 		}
-
 
 		if(Q6 == undefined){
-			unansweredCount++;
+			unanswered++;
 		}
 		else if(Q6 == "Green Arrow"){
-			correctCount++;
+			correct++;
 		}
 		else{
-			wrongCount++;
+			wrong++;
 		}
-
 
 		if(Q7 == undefined){
-			unansweredCount++;
+			unanswered++;
 		}
 		else if(Q7 == "Joe Chill"){
-			correctCount++;
+			correct++;
 		}
 		else{
-			wrongCount++;
+			wrong++;
 		}
-
 
 		if(Q8 == undefined){
-			unansweredCount++;
+			unanswered++;
 		}
 		else if(Q8 == "All of the Above"){
-			correctCount++;
+			correct++;
 		}
 		else{
-			wrongCount++;
+			wrong++;
 		}
-
 
 		if(Q9 == undefined){
-			unansweredCount++;
+			unanswered++;
 		}
 		else if(Q9 == "Black Widow"){
-			correctCount++;
+			correct++;
 		}
 		else{
-			wrongCount++;
+			wrong++;
 		}
-
-
 
 		if(Q10 == undefined){
-			unansweredCount++;
+			unanswered++;
 		}
 		else if(Q10 == "Teen Titans"){
-			correctCount++;
+			correct++;
 		}
 		else{
-			wrongCount++;
+			wrong++;
 		}
+
+		this.results();
+	},
+
+	results: function(){
+		clearInterval(timer);
 
 		// Show the completed Score Div
 		$("#end-container").show();
 
-
 		//show final results
-		$('#correct-answers').html(correctCount);
-		$('#wrong-answers').html(wrongCount);
-		$('#unanswered').html(unansweredCount);
-
-
-
+		$('#correct-answers').html(correct);
+		$('#wrong-answers').html(wrong);
+		$('#unanswered').html(unanswered);
 	}
+};
 
+//Click Events
+$(document).on("click", "#start_button", function () {
+	game.startCountdown();
+	$("#main-container").show();
 });
 
+$(document).on("click", "#done_button", function () {
+  game.timeUp();
+  $("#main-container").hide();
+});
